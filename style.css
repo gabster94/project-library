@@ -1,0 +1,23 @@
+h1 {
+    border: 2px solid black
+}
+
+.filter {
+    border: 2px solid red;
+}
+
+.filter-container {
+    border: 2px solid green;
+}
+
+.sort-container {
+    border: 2px solid purple;
+}
+
+h2 {
+    border: 2px solid orange;
+}
+
+form {
+    border: 2px solid hotpink;
+}
