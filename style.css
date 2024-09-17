@@ -46,6 +46,11 @@ main {
     border: 2px solid purple;
 }
 
+.country {
+    border-radius: 5px;
+    color: hotpink;
+}
+
 h2 {
     border: 2px solid orange;
 }
