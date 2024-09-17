@@ -1,24 +1,23 @@
 body {
-    /* padding: 10px; */
+    padding: 0;
     background-color: #d9e7e2;
     font-family: 'Poppins';
-    margin: 5px auto;
     max-width: 100%;
-    overflow-x: hidden;
+    margin: 0;
+    /* overflow-x: hidden; */
 }
 
 /* Header mobile phone */
 header {
     max-width: 100%;
-    margin: auto;
-    /* display: flex; */
+    margin: 0;
 }
 
 h1 {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
     color: #23362f;
-
+    width: 100%;
 }
 
 /* Main section mobile phone */
@@ -31,12 +30,13 @@ main {
     /* border: 2px solid red; */
     display: flex;
     justify-content: space-evenly;
-    background-color: white;
+    /* background-color: whitesmoke; */
     padding: 10px;
     max-width: 100%;
-    background-color: white;
     padding: 20px 0 20px 0;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 2px solid gray;
+    gap: 2px;
 }
 
 h2 {
@@ -52,16 +52,8 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 20 px;
-
-}
-
-.country {
-    border-radius: 5px;
-    color: black;
-    background-color: hotpink;
-    max-width: 70%;
-    min-width: 30px;
+    background-color: whitesmoke;
+    padding: 30px;
 
 }
 
@@ -74,6 +66,8 @@ form {
     justify-content: center;
 }
 
+
+
 /* Sort Container */
 
 .sort-container {
@@ -81,6 +75,29 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: whitesmoke;
+    padding: 30px;
+}
+
+/* buttons */
+.country,
+.decending,
+.ascending {
+    border-radius: 5px;
+    background-color: rgb(191, 202, 176);
+    max-width: 70%;
+    min-width: 30px;
+    font-weight: 800;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+}
+
+.country:hover,
+.ascending:hover,
+.decending:hover {
+    background-color: rgb(96, 96, 122);
+    color: white;
 }
 
 /* Card Contents */
