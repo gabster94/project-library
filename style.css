@@ -3,10 +3,18 @@ body {
     background-color: #d9e7e2;
     font-family: 'Poppins';
     margin: 0px;
+    width: 100%;
+    overflow-x: hidden;
+
 }
 
-main {
-    padding: 10px;
+
+
+header {
+    width: 100%;
+    margin: auto;
+    /* display: flex; */
+
 }
 
 h1 {
@@ -15,10 +23,16 @@ h1 {
     color: #23362f;
 }
 
+main {
+
+    padding: 10px;
+}
+
 .categories {
     border: 2px solid red;
     display: flex;
-    max-width: 100%;
+    /* display: block; */
+    /* max-width: 100%; */
     gap: 20px;
 
 }
@@ -42,9 +56,12 @@ form {
 
 section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* display: flex; */
     gap: 5px;
     background: whitesmoke;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
+    padding: 20px;
 }
 
 .card {
@@ -52,6 +69,7 @@ section {
     border: 2px solid orange;
     padding: 20px;
     max-width: 100%;
+    flex-direction: column;
 }
 
 /* .card-image {
@@ -63,10 +81,9 @@ section {
 
 
 img {
-
     max-width: 100%;
     border: 2px solid hotpink;
-
+    display: block;
 }
 
 /* .button {} */
