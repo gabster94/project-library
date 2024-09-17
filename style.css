@@ -1,13 +1,31 @@
-h1 {
-    border: 2px solid black
+body {
+    /* padding: 10px; */
+    background-color: #d9e7e2;
+    font-family: 'Poppins';
+    margin: 0px;
 }
 
-.filter {
+main {
+    padding: 10px;
+}
+
+h1 {
+    border: 2px solid black;
+    text-align: center;
+    color: #23362f;
+}
+
+.categories {
     border: 2px solid red;
+    display: flex;
+    max-width: 100%;
+    gap: 20px;
+
 }
 
 .filter-container {
     border: 2px solid green;
+
 }
 
 .sort-container {
@@ -21,3 +39,34 @@ h2 {
 form {
     border: 2px solid hotpink;
 }
+
+section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    background: whitesmoke;
+}
+
+.card {
+    display: flex;
+    border: 2px solid orange;
+    padding: 20px;
+    max-width: 100%;
+}
+
+/* .card-image {
+    /* min-width: 300px; */
+/* max-width: 100%; */
+/* border: 2px solid hotpink; */
+/* }  */
+
+
+
+img {
+
+    max-width: 100%;
+    border: 2px solid hotpink;
+
+}
+
+/* .button {} */
