@@ -2,62 +2,88 @@ body {
     /* padding: 10px; */
     background-color: #d9e7e2;
     font-family: 'Poppins';
-    margin: 0px;
-    width: 100%;
+    margin: 5px auto;
+    max-width: 100%;
     overflow-x: hidden;
-
 }
 
-
-
+/* Header mobile phone */
 header {
-    width: 100%;
+    max-width: 100%;
     margin: auto;
     /* display: flex; */
-
 }
 
 h1 {
     border: 2px solid black;
     text-align: center;
     color: #23362f;
+
 }
 
-main {
+/* Main section mobile phone */
 
+main {
     padding: 10px;
 }
 
 .categories {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
-    /* display: block; */
-    /* max-width: 100%; */
-    gap: 20px;
-
+    justify-content: space-evenly;
+    background-color: white;
+    padding: 10px;
+    max-width: 100%;
+    background-color: white;
+    padding: 20px 0 20px 0;
+    border-radius: 5px;
 }
+
+h2 {
+    /* border: 2px solid orange; */
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Filter on Kitchen */
 
 .filter-container {
-    border: 2px solid green;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20 px;
 
-}
-
-.sort-container {
-    border: 2px solid purple;
 }
 
 .country {
     border-radius: 5px;
-    color: hotpink;
-}
+    color: black;
+    background-color: hotpink;
+    max-width: 70%;
+    min-width: 30px;
 
-h2 {
-    border: 2px solid orange;
 }
 
 form {
-    border: 2px solid hotpink;
+    /* border: 2px solid hotpink; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Sort Container */
+
+.sort-container {
+    /* border: 2px solid purple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Card Contents */
 
 section {
     display: grid;
@@ -65,7 +91,7 @@ section {
     /* display: flex; */
     gap: 5px;
     background: whitesmoke;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 3fr));
     padding: 20px;
 }
 
@@ -84,11 +110,8 @@ section {
 /* }  */
 
 
-
 img {
     max-width: 100%;
     border: 2px solid hotpink;
     display: block;
 }
-
-/* .button {} */
