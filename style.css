@@ -125,7 +125,7 @@ Changed the background of section so it is the same as the body background */
     display: flex;
     border: 2px solid orange;
     padding: 20px;
-    max-width: 100%;
+    max-width: 240px;
     flex-direction: column;
 }
 

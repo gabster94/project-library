@@ -193,15 +193,32 @@ const RECIPES = [
 ]
 
 
-
 const cardContainer = document.getElementById('card-container')
 
-const getRecipes = (recipesArray) => {
-  recipesArray.forEach(recipes => {
+// Select the button with the ID 'all'
+const allButton = document.getElementById('all');
+const italyButton = document.getElementById('italy');
+const usaButton = document.getElementById('usa')
+const chinaButton = document.getElementById('china')
+
+// Function to display all recipes
+const displayRecipes = (recipesArray, filterCuisine = null) => {
+  // const getRecipes = (recipesArray) => {
+  // Clear the card container before adding new content
+  cardContainer.innerHTML = ''; // <-- Added to clear existing content
+
+
+  // Filter recipes if a filterCuisine is provided
+  const filteredRecipes = filterCuisine
+    ? recipesArray.filter(recipe => recipe.cuisineType.includes(filterCuisine))
+    : recipesArray;
+
+
+  filteredRecipes.forEach(recipes => {
     cardContainer.innerHTML += `
           <div class="card" id="">
         <div class="card-image">
-          <img src=${recipes.image}/>
+          <img src=${recipes.image} alt="${recipes.name}"/>
         </div>
         <div class="card-text">
           <h2>${recipes.name}</h2>
@@ -211,28 +228,49 @@ const getRecipes = (recipesArray) => {
   })
 }
 
-// getRecipes(RECIPES)
 
 
-// Eventlisteners 
+// Display all recipes by default when the page loads
+displayRecipes(RECIPES);
+
+// Add event listeners to the buttons
+allButton.addEventListener('click', () => { // Event listener for all recipes
+  displayRecipes(RECIPES);
+});
+
+italyButton.addEventListener('click', () => { // Event listener for Italian recipes
+  displayRecipes(RECIPES, 'italian');
+});
+
+usaButton.addEventListener('click', () => {
+  displayRecipes(RECIPES, 'usa')
+});
+
+chinaButton.addEventListener('click', () => {
+  displayRecipes(RECIPES, 'china')
+});
 
 
+// Buttons for sorting
+const ascendingButton = document.getElementById('ascending');
+const descendingButton = document.getElementById('descending');
 
 
+// Sort by recipe name in ascending order
+ascendingButton.addEventListener('click', () => {
+  const sortedRecipes = [...RECIPES].sort((a, b) => a.name.localeCompare(b.name));
+  displayRecipes(sortedRecipes);
+});
 
-//Buttons
+// Sort by recipe name in descending order
+descendingButton.addEventListener('click', () => {
+  const sortedRecipes = [...RECIPES].sort((a, b) => b.name.localeCompare(a.name));
+  displayRecipes(sortedRecipes);
+  console.log(sortedRecipes)
+});
 
-const allButton = document.getElementById("all");
+// Display all recipes initially
+displayRecipes(RECIPES);
 
-const getRecipes = () => {
-  // We want to get the first breakfast in our array
-  answer.innerHTML = recipes[0];
-};
-
-
-getRecipes()
-
-
-allButton.addEventListener("click", getRecipes);
 
 
