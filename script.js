@@ -269,6 +269,19 @@ descendingButton.addEventListener('click', () => {
   console.log(sortedRecipes)
 });
 
+
+//Sort by shortest cooking time 
+shortestButton.addEventListener('click', () => {
+  const sortedRecipes = [...RECIPES].sort((a, b) => a.totalTime - b.totalTime);
+  displayRecipes(sortedRecipes);
+});
+
+//Sort by longest cooking time 
+longestButton.addEventListener('click', () => {
+  const sortedRecipes = [...RECIPES].sort((a, b) => b.totalTime - a.totalTime);
+  displayRecipes(sortedRecipes);
+});
+
 // Display all recipes initially
 displayRecipes(RECIPES);
 
