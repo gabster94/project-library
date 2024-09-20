@@ -198,7 +198,7 @@ const ascendingButton = document.getElementById('ascendingButton')
 const descendingButton = document.getElementById('descendingButton')
 const shortestButton = document.getElementById('shortest')
 const longestButton = document.getElementById('longest')
-
+const randomButton = document.getElementById('random-button')
 
 // Display all recipes by default when the page loads
 
@@ -208,14 +208,22 @@ const displayRecipes = (recipesArray) => {
   // Iterating over the whole recipe array to access each recipe object to be able to fill in the $key of the innerHTML afterwards
   recipesArray.forEach(recipe => {
 
+    // Convert ingredients array to a list
+    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
+
+    // Handle cuisineType as array or string
+    const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
+
     cardContainer.innerHTML += `
-          <div class="card" id="">
+      <div class="card">
         <div class="card-image">
-          <img src=${recipe.image} alt="${recipe.name}"/>
+          <img src="${recipe.image}" alt="${recipe.name}"/>
         </div>
         <div class="card-text">
           <h2>${recipe.name}</h2>
-          <p>${recipe.ingredients}</p>
+          <p><strong>Cuisine:</strong> ${cuisine}</p>
+          <p><strong>Ingredients:</strong></p>
+          <ul>${ingredientsList}</ul>
         </div>
       </div>`
   })
@@ -247,6 +255,12 @@ longestButton.addEventListener('click', () => {
   displayRecipes(sortedRecipes);
 })
 
+
+randomButton.addEventListener('click', () => {
+  const randomIndex = Math.floor(Math.random() * RECIPES.length)
+  const randomRecipe = RECIPES[randomIndex]
+  displayRecipes([randomRecipe]) // Pass an array with the single recipe
+})
 // Display all recipes initially
 
 displayRecipes(RECIPES)
