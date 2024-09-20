@@ -220,7 +220,7 @@ const displayRecipes = (recipesArray) => {
           <img src="${recipe.image}" alt="${recipe.name}"/>
         </div>
         <div class="card-text">
-          <h2>${recipe.name}</h2>
+          <h3>${recipe.name}</h3>
           <p><strong>Cuisine:</strong> ${cuisine}</p>
           <p><strong>Ingredients:</strong></p>
           <ul>${ingredientsList}</ul>
