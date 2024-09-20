@@ -198,7 +198,7 @@ const ascendingButton = document.getElementById('ascendingButton')
 const descendingButton = document.getElementById('descendingButton')
 const shortestButton = document.getElementById('shortest')
 const longestButton = document.getElementById('longest')
-
+const randomButton = document.getElementById('random-button')
 
 // Display all recipes by default when the page loads
 
@@ -248,6 +248,12 @@ longestButton.addEventListener('click', () => {
   displayRecipes(sortedRecipes);
 })
 
+
+randomButton.addEventListener('click', () => {
+  const randomIndex = Math.floor(Math.random() * RECIPES.length)
+  const randomRecipe = RECIPES[randomIndex]
+  displayRecipes([randomRecipe]) // Pass an array with the single recipe
+})
 // Display all recipes initially
 
 displayRecipes(RECIPES)
