@@ -232,8 +232,7 @@ ascendingButton.addEventListener('click', () => {
 // Sort by recipe name in descending order
 descendingButton.addEventListener('click', () => {
   const sortedRecipes = [...RECIPES].sort((a, b) => b.name.localeCompare(a.name))
-  displayRecipes(sortedRecipes);
-  console.log(sortedRecipes)
+  displayRecipes(sortedRecipes)
 })
 
 //Sort by shortest cooking time 
