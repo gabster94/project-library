@@ -7,7 +7,7 @@ of the properties make sense to filter on, and some to sort on.*/
 const RECIPES = [
   {
     name: 'Cheat’s cheesy focaccia',
-    cuisineType: ['Italian'],
+    cuisineType: ['italian'],
     ingredients: [
       '500g pack bread mix',
       '2 tbsp olive oil , plus a little extra for drizzling',
@@ -199,6 +199,9 @@ const descendingButton = document.getElementById('descendingButton')
 const shortestButton = document.getElementById('shortest')
 const longestButton = document.getElementById('longest')
 const randomButton = document.getElementById('random-button')
+const selectCountry = document.getElementById('selectCountry')
+const countryDropdown = document.getElementById('countryDropdown')
+
 
 // Display all recipes by default when the page loads
 
@@ -212,22 +215,58 @@ const displayRecipes = (recipesArray) => {
     const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
 
     // Handle cuisineType as array or string
-    const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
+    // const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
 
     cardContainer.innerHTML += `
-      <div class="card">
-        <div class="card-image">
-          <img src="${recipe.image}" alt="${recipe.name}"/>
-        </div>
-        <div class="card-text">
-          <h2>${recipe.name}</h2>
-          <p><strong>Cuisine:</strong> ${cuisine}</p>
-          <p><strong>Ingredients:</strong></p>
-          <ul>${ingredientsList}</ul>
-        </div>
-      </div>`
+          <div class="card">
+            <div class="card-image">
+              <img src="${recipe.image}" alt="${recipe.name}"/>
+            </div>
+            <div class="card-text">
+              <h2>${recipe.name}</h2>
+            <p>Cuisine Type: ${recipe.cuisineType}</p>
+          <p class="titleIngredients">Ingredients:</p>
+          <ul class="ingredients">${ingredientsList} </ul>
+            </div>
+          </div>`
   })
 }
+
+
+
+const filterRecipes = () => {
+  // get the value from the select
+  const value = filterDropdown.value
+  console.log('the user selected', value)
+  // if the user clicks "all", all the recipes will be shown
+
+  if (value === 'all') {
+    displayRecipes(RECIPES)
+
+    // if the user clicks on another choice only selected recipes will be shown. Since the cuisine types are sometimes stored as a 'string' and sometimes as an [array], I mentioned 
+  } else if (value === 'american') {
+
+    const americanRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('american'))
+    displayRecipes(americanRecipes)
+
+  } else if (value === 'asian') {
+
+    const asianRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('south east asian'))
+    displayRecipes(asianRecipes)
+
+  } else if (value === 'italian') {
+    const italianRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('italian'))
+
+    displayRecipes(italianRecipes)
+
+  }
+}
+
+// eventListener for the Dropdown menu
+filterDropdown.addEventListener('change', filterRecipes)
+
+
+
 
 //  Buttons for sorting
 // Sort by recipe name in ascending order
@@ -261,6 +300,8 @@ randomButton.addEventListener('click', () => {
   const randomRecipe = RECIPES[randomIndex]
   displayRecipes([randomRecipe]) // Pass an array with the single recipe
 })
+
 // Display all recipes initially
+
 
 displayRecipes(RECIPES)
