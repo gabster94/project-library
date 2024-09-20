@@ -192,98 +192,62 @@ const RECIPES = [
   }
 ]
 
-
 const cardContainer = document.getElementById('card-container')
-
-// Select the button with the ID 'all'
-const allButton = document.getElementById('all');
-const italyButton = document.getElementById('italy');
-const usaButton = document.getElementById('usa')
-const chinaButton = document.getElementById('china')
-
-// Function to display all recipes
-const displayRecipes = (recipesArray, filterCuisine = null) => {
-  // const getRecipes = (recipesArray) => {
-  // Clear the card container before adding new content
-  cardContainer.innerHTML = ''; // <-- Added to clear existing content
+const filterDropdown = document.getElementById('filterDropdown')
+const ascendingButton = document.getElementById('ascendingButton')
+const descendingButton = document.getElementById('descendingButton')
+const shortestButton = document.getElementById('shortest')
+const longestButton = document.getElementById('longest')
 
 
-  // Filter recipes if a filterCuisine is provided
-  const filteredRecipes = filterCuisine
-    ? recipesArray.filter(recipe => recipe.cuisineType.includes(filterCuisine))
-    : recipesArray;
+// Display all recipes by default when the page loads
 
+const displayRecipes = (recipesArray) => {
+  cardContainer.innerHTML = '' //Clears the content
 
-  filteredRecipes.forEach(recipes => {
+  // Iterating over the whole recipe array to access each recipe object to be able to fill in the $key of the innerHTML afterwards
+  recipesArray.forEach(recipe => {
+
     cardContainer.innerHTML += `
           <div class="card" id="">
         <div class="card-image">
-          <img src=${recipes.image} alt="${recipes.name}"/>
+          <img src=${recipe.image} alt="${recipe.name}"/>
         </div>
         <div class="card-text">
-          <h2>${recipes.name}</h2>
-          <p>${recipes.ingredients}</p>
+          <h2>${recipe.name}</h2>
+          <p>${recipe.ingredients}</p>
         </div>
       </div>`
   })
 }
 
-
-
-// Display all recipes by default when the page loads
-displayRecipes(RECIPES);
-
-// Add event listeners to the buttons
-allButton.addEventListener('click', () => { // Event listener for all recipes
-  displayRecipes(RECIPES);
-});
-
-italyButton.addEventListener('click', () => { // Event listener for Italian recipes
-  displayRecipes(RECIPES, 'italian');
-});
-
-usaButton.addEventListener('click', () => {
-  displayRecipes(RECIPES, 'usa')
-});
-
-chinaButton.addEventListener('click', () => {
-  displayRecipes(RECIPES, 'china')
-});
-
-
-// Buttons for sorting
-const ascendingButton = document.getElementById('ascending');
-const descendingButton = document.getElementById('descending');
-
-
+//  Buttons for sorting
 // Sort by recipe name in ascending order
 ascendingButton.addEventListener('click', () => {
-  const sortedRecipes = [...RECIPES].sort((a, b) => a.name.localeCompare(b.name));
-  displayRecipes(sortedRecipes);
-});
+
+  const sortedRecipes = [...RECIPES].sort((a, b) => a.name.localeCompare(b.name))
+  displayRecipes(sortedRecipes)
+})
 
 // Sort by recipe name in descending order
 descendingButton.addEventListener('click', () => {
-  const sortedRecipes = [...RECIPES].sort((a, b) => b.name.localeCompare(a.name));
+  const sortedRecipes = [...RECIPES].sort((a, b) => b.name.localeCompare(a.name))
   displayRecipes(sortedRecipes);
   console.log(sortedRecipes)
-});
-
+})
 
 //Sort by shortest cooking time 
 shortestButton.addEventListener('click', () => {
-  const sortedRecipes = [...RECIPES].sort((a, b) => a.totalTime - b.totalTime);
+  const sortedRecipes = [...RECIPES].sort((a, b) => a.totalTime - b.totalTime)
   displayRecipes(sortedRecipes);
-});
+})
 
 //Sort by longest cooking time 
 longestButton.addEventListener('click', () => {
-  const sortedRecipes = [...RECIPES].sort((a, b) => b.totalTime - a.totalTime);
+  const sortedRecipes = [...RECIPES].sort((a, b) => b.totalTime - a.totalTime)
   displayRecipes(sortedRecipes);
-});
+})
 
 // Display all recipes initially
-displayRecipes(RECIPES);
 
-
-
+displayRecipes(RECIPES)

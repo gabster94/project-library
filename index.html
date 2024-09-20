@@ -20,7 +20,15 @@
 
     <div class="categories" id="categories">
 
-      <div class="filter-container">
+
+      <div>
+        <select id="filterDropdown">
+          <option value="country" id="selectCountry">Cuisine type</option>
+          <option value="ingredients">Ingredients</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <!-- <div class="filter-container">
         <h2 class="">Filter on Kitchen</h2>
         <form for="country">
           <button type="button" class="country" id="all">All</button>
@@ -28,7 +36,7 @@
           <button type="button" class="country" id="usa">USA</button>
           <button type="button" class="country" id="china">China</button>
         </form>
-      </div>
+      </div> -->
 
       <div class="time-container">
         <h2 class="">Cooking time</h2>
@@ -42,8 +50,8 @@
         <h2>Sort</h2>
         <form>
           <form for="sort">
-            <button type="button" class="ascending" id="ascending">Ascending</button>
-            <button type="button" class="decending" id="descending">Decending</button>
+            <button type="button" class="ascending" id="ascendingButton">Ascending</button>
+            <button type="button" class="decending" id="descendingButton">Decending</button>
           </form>
       </div>
 
