@@ -186,7 +186,7 @@ const RECIPES = [
       '1/4 teaspoon ground white pepper'
     ],
     source: 'Red Cook',
-    totalTime: null,
+    totalTime: 60,
     url: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
     image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
   }
