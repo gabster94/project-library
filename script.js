@@ -208,14 +208,22 @@ const displayRecipes = (recipesArray) => {
   // Iterating over the whole recipe array to access each recipe object to be able to fill in the $key of the innerHTML afterwards
   recipesArray.forEach(recipe => {
 
+    // Convert ingredients array to a list
+    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
+
+    // Handle cuisineType as array or string
+    const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
+
     cardContainer.innerHTML += `
-          <div class="card" id="">
+      <div class="card">
         <div class="card-image">
-          <img src=${recipe.image} alt="${recipe.name}"/>
+          <img src="${recipe.image}" alt="${recipe.name}"/>
         </div>
         <div class="card-text">
           <h2>${recipe.name}</h2>
-          <p>${recipe.ingredients}</p>
+          <p><strong>Cuisine:</strong> ${cuisine}</p>
+          <p><strong>Ingredients:</strong></p>
+          <ul>${ingredientsList}</ul>
         </div>
       </div>`
   })
