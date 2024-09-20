@@ -1,7 +1,7 @@
 const RECIPES = [
   {
     name: 'Cheat’s cheesy focaccia',
-    cuisineType: ['italian'],
+    cuisineType: ['Italian'],
     ingredients: [
       '500g pack bread mix',
       '2 tbsp olive oil , plus a little extra for drizzling',
@@ -154,7 +154,7 @@ const RECIPES = [
   },
   {
     name: 'Deep Fried Fish Bones',
-    cuisineType: ['Chinese', ' south east asian'],
+    cuisineType: ['Chinese', 'south east asian'],
     ingredients: ['8 small whiting fish or smelt', '4 cups vegetable oil'],
     source: 'Serious Eats',
     totalTime: 31,
@@ -193,8 +193,7 @@ const descendingButton = document.getElementById('descendingButton')
 const shortestButton = document.getElementById('shortest')
 const longestButton = document.getElementById('longest')
 const randomButton = document.getElementById('random-button')
-const selectCountry = document.getElementById('selectCountry')
-const countryDropdown = document.getElementById('countryDropdown')
+// const selectCountry = document.getElementById('selectCountry')
 
 
 // Display all recipes by default when the page loads
@@ -206,7 +205,10 @@ const displayRecipes = (recipesArray) => {
   recipesArray.forEach(recipe => {
 
     // Get the total time
-    const time = recipe.totalTime;
+    // const time = recipe.totalTime;
+
+    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`)
+
 
     // Handle cuisineType as array or string
     // const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
@@ -227,7 +229,6 @@ const displayRecipes = (recipesArray) => {
 }
 
 
-
 const filterRecipes = () => {
   // get the value from the select
   const value = filterDropdown.value
@@ -240,7 +241,7 @@ const filterRecipes = () => {
     // if the user clicks on another choice only selected recipes will be shown. Since the cuisine types are sometimes stored as a 'string' and sometimes as an [array], I mentioned 
   } else if (value === 'american') {
 
-    const americanRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('american'))
+    const americanRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('American'))
     displayRecipes(americanRecipes)
 
   } else if (value === 'asian') {
@@ -249,7 +250,7 @@ const filterRecipes = () => {
     displayRecipes(asianRecipes)
 
   } else if (value === 'italian') {
-    const italianRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('italian'))
+    const italianRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('Italian'))
 
     displayRecipes(italianRecipes)
 
@@ -258,8 +259,6 @@ const filterRecipes = () => {
 
 // eventListener for the Dropdown menu
 filterDropdown.addEventListener('change', filterRecipes)
-
-
 
 
 //  Buttons for sorting
