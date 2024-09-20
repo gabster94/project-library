@@ -1,9 +1,3 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
-
-
 const RECIPES = [
   {
     name: 'Cheat’s cheesy focaccia',
@@ -21,7 +15,7 @@ const RECIPES = [
   },
   {
     name: 'Spice-Rubbed Grilled Flap Meat (Sirloin Tip) Recipe',
-    cuisineType: 'south-american',
+    cuisineType: 'American',
     ingredients: [
       '1 tablespoon whole black peppercorns, toasted',
       '1 teaspoon coriander seed, toasted',
@@ -41,7 +35,7 @@ const RECIPES = [
   },
   {
     name: 'Burnt-Scallion Fish',
-    cuisineType: ['chinese'],
+    cuisineType: ['Chinese'],
     ingredients: [
       '2 bunches scallions',
       '8 tbsp. butter',
@@ -54,7 +48,7 @@ const RECIPES = [
   },
   {
     name: 'Baked Chicken',
-    cuisineType: ['american'],
+    cuisineType: ['American'],
     ingredients: [
       '6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on',
       '1/2 teaspoon coarse salt',
@@ -68,7 +62,7 @@ const RECIPES = [
   },
   {
     name: "Vegetarian Shepherd's Pie",
-    cuisineType: ['Balanced', 'High-Fiber'],
+    cuisineType: ['English', 'Balanced', 'High-Fiber'],
     ingredients: [
       '2 tablespoons extra-virgin olive oil',
       '1 large onion, finely diced',
@@ -93,7 +87,7 @@ const RECIPES = [
   },
   {
     name: 'Chicken Paprikash',
-    cuisineType: ['Low-Carb'],
+    cuisineType: ['Chinese', 'Low-Carb'],
     ingredients: [
       '640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)',
       '1/2 teaspoon salt',
@@ -114,7 +108,7 @@ const RECIPES = [
   },
   {
     name: 'Meat Stock',
-    cuisineType: 'american',
+    cuisineType: 'American',
     ingredients: [
       '2.5 pounds beef marrow bones',
       '1 large onion, quartered',
@@ -136,7 +130,7 @@ const RECIPES = [
   },
   {
     name: 'Individual vegetarian lasagnes',
-    cuisineType: ['italian'],
+    cuisineType: ['Italian'],
     ingredients: [
       '1.2 kg cherry tomatoes',
       '5 sprigs of fresh thyme',
@@ -160,7 +154,7 @@ const RECIPES = [
   },
   {
     name: 'Deep Fried Fish Bones',
-    cuisineType: ['south east asian'],
+    cuisineType: ['Chinese', ' south east asian'],
     ingredients: ['8 small whiting fish or smelt', '4 cups vegetable oil'],
     source: 'Serious Eats',
     totalTime: 31,
@@ -169,7 +163,7 @@ const RECIPES = [
   },
   {
     name: 'Vegetarian Stir-Fried Garlic Scape',
-    cuisineType: ['Balanced'],
+    cuisineType: ['Italian', 'Balanced'],
     ingredients: [
       '8 oz. garlic scapes',
       '3 oz. baby corn',
@@ -186,7 +180,7 @@ const RECIPES = [
       '1/4 teaspoon ground white pepper'
     ],
     source: 'Red Cook',
-    totalTime: null,
+    totalTime: 60,
     url: 'http://redcook.net/2010/06/16/garlic-scape-an-off-menu-treat/',
     image: './recipe-images/vegetarian-stir-fried-garlic-s.jpg'
   }
@@ -211,8 +205,8 @@ const displayRecipes = (recipesArray) => {
   // Iterating over the whole recipe array to access each recipe object to be able to fill in the $key of the innerHTML afterwards
   recipesArray.forEach(recipe => {
 
-    // Convert ingredients array to a list
-    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
+    // Get the total time
+    const time = recipe.totalTime;
 
     // Handle cuisineType as array or string
     // const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
@@ -300,6 +294,7 @@ randomButton.addEventListener('click', () => {
   const randomRecipe = RECIPES[randomIndex]
   displayRecipes([randomRecipe]) // Pass an array with the single recipe
 })
+
 
 // Display all recipes initially
 

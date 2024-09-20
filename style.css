@@ -29,11 +29,8 @@ main {
 }
 
 .categories {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: space-evenly;
-    /* background-color: whitesmoke; */
-    /* padding: 10px; */
     max-width: 100%;
     padding: 20px 0 20px 0;
     border-radius: 5px 5px 0 0;
@@ -42,7 +39,6 @@ main {
 }
 
 h2 {
-    /* border: 2px solid orange; */
     text-align: center;
     margin: 0 auto;
 }
@@ -50,17 +46,19 @@ h2 {
 /* Filter on Kitchen */
 
 .filter-container {
-    /* border: 2px solid green; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: whitesmoke; */
     padding: 0px 25px 25px 25px;
 
 }
 
+#filterDropdown {
+    cursor: pointer;
+}
+
+
 form {
-    /* border: 2px solid hotpink; */
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
@@ -73,32 +71,32 @@ form {
 /* Sort Container */
 
 .sort-container {
-    /* border: 2px solid purple; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: whitesmoke; */
     padding: 0px 25px 25px 25px;
 }
 
 /* buttons */
-.country,
 .shortest,
 .longest,
 .decending,
 .ascending {
-    border-radius: 5px;
-    background-color: #a3b8b1;
+    border-radius: 10px;
+    background-color: #74c2a8;
+    /* background-color: #a3b8b1; */
     max-width: 80%;
     font-weight: 700;
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
     border: none;
     border: none;
     box-shadow: 10px 5px 5px grey;
+    cursor: pointer;
 }
 
-.country:hover,
+/* Changes made: Changed the background color so it is the same color theme as the background. Added a box shadow to the buttons and changed the font weight to 700.  */
+
 .ascending:hover,
 .shortest:hover,
 .longest:hover,
@@ -107,11 +105,38 @@ form {
     color: white;
 }
 
+.random-container {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.random-button {
+    border-radius: 10px;
+    background-color: #74c2a8;
+    max-width: 80%;
+    font-weight: 700;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border: none;
+    box-shadow: 10px 5px 5px grey;
+    cursor: pointer;
+}
+
+.random-button:hover {
+    background-color: rgb(96, 96, 122);
+    color: white;
+}
+
 /* Card Contents */
 
 section {
     display: grid;
-    gap: 5px;
+    gap: 15px;
     background: #d9e7e2;
     grid-template-columns: repeat(auto-fit, minmax(240px, 3fr));
     padding: 20px;
@@ -120,17 +145,38 @@ section {
 
 .card {
     display: flex;
-    border: 2px solid orange;
-    padding: 20px;
+    /* border: 2px solid orange; */
+    border-radius: 50px 0px 50px 0px;
+    padding: 7px;
     max-width: 240px;
     flex-direction: column;
+    background-color: white;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.card h3 {
+    font-size: 20px;
+}
+
+.card ul {
+    font-size: 12px;
+}
+
+.card:hover {
+    background-color: rgb(96, 96, 122);
+    color: white;
+    box-shadow: 10px 5px 5px grey;
 }
 
 .card-image {
     width: 100%;
     height: 300px;
     /* Set a fixed height for all images */
-    border: 2px solid hotpink;
+    /* border: 2px solid hotpink; */
+    border-radius: 50px 0px 50px 0px;
     overflow: hidden;
 }
 
