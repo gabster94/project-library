@@ -55,6 +55,14 @@ h2 {
 
 #filterDropdown {
     cursor: pointer;
+    border-radius: 10px;
+    background-color: #adb6b3;
+    max-width: 80%;
+    font-weight: 700;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+
 }
 
 
@@ -84,12 +92,10 @@ form {
 .ascending {
     border-radius: 10px;
     background-color: #74c2a8;
-    /* background-color: #a3b8b1; */
     max-width: 80%;
     font-weight: 700;
     margin: 10px;
     padding: 10px;
-    border: none;
     border: none;
     box-shadow: 10px 5px 5px grey;
     cursor: pointer;
