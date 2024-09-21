@@ -35,7 +35,7 @@ const RECIPES = [
   },
   {
     name: 'Burnt-Scallion Fish',
-    cuisineType: ['Chinese'],
+    cuisineType: ['Asian', 'Chinese'],
     ingredients: [
       '2 bunches scallions',
       '8 tbsp. butter',
@@ -62,7 +62,7 @@ const RECIPES = [
   },
   {
     name: "Vegetarian Shepherd's Pie",
-    cuisineType: ['English', 'Balanced', 'High-Fiber'],
+    cuisineType: ['English', 'Traditional', 'Balanced', 'High-Fiber'],
     ingredients: [
       '2 tablespoons extra-virgin olive oil',
       '1 large onion, finely diced',
@@ -87,7 +87,7 @@ const RECIPES = [
   },
   {
     name: 'Chicken Paprikash',
-    cuisineType: ['Chinese', 'Low-Carb'],
+    cuisineType: ['Asian', 'Chinese', 'Low-Carb'],
     ingredients: [
       '640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)',
       '1/2 teaspoon salt',
@@ -154,7 +154,7 @@ const RECIPES = [
   },
   {
     name: 'Deep Fried Fish Bones',
-    cuisineType: ['Chinese', 'south east asian'],
+    cuisineType: ['Chinese', 'south east asian', 'Asian'],
     ingredients: ['8 small whiting fish or smelt', '4 cups vegetable oil'],
     source: 'Serious Eats',
     totalTime: 31,
@@ -205,13 +205,15 @@ const displayRecipes = (recipesArray) => {
   recipesArray.forEach(recipe => {
 
     // Get the total time
-    // const time = recipe.totalTime;
-
-    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`)
-
-
+    const time = recipe.totalTime;
+      
     // Handle cuisineType as array or string
-    // const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
+    const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
+    
+    // Convert ingredients array to a list
+    const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
+
+
 
     cardContainer.innerHTML += `
           <div class="card">
@@ -219,10 +221,11 @@ const displayRecipes = (recipesArray) => {
               <img src="${recipe.image}" alt="${recipe.name}"/>
             </div>
             <div class="card-text">
-              <h2>${recipe.name}</h2>
-            <p>Cuisine Type: ${recipe.cuisineType}</p>
-          <p class="titleIngredients">Ingredients:</p>
-          <ul class="ingredients">${ingredientsList} </ul>
+              <h3>${recipe.name}</h3>
+              <p><strong>Total Time: ${time} minutes</strong></p>
+              <p><strong>Cuisine:</strong> ${cuisine}</p>
+              <p><strong>Ingredients:</strong></p>
+              <ul>${ingredientsList}</ul>
             </div>
           </div>`
   })
