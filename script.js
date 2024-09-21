@@ -206,10 +206,10 @@ const displayRecipes = (recipesArray) => {
 
     // Get the total time
     const time = recipe.totalTime;
-      
+
     // Handle cuisineType as array or string
     const cuisine = Array.isArray(recipe.cuisineType) ? recipe.cuisineType.join(', ') : recipe.cuisineType
-    
+
     // Convert ingredients array to a list
     const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
 
@@ -250,6 +250,7 @@ const filterRecipes = () => {
   } else if (value === 'asian') {
 
     const asianRecipes = RECIPES.filter(recipe => recipe.cuisineType && recipe.cuisineType.includes('south east asian'))
+
     displayRecipes(asianRecipes)
 
   } else if (value === 'italian') {
@@ -299,6 +300,5 @@ randomButton.addEventListener('click', () => {
 
 
 // Display all recipes initially
-
 
 displayRecipes(RECIPES)
