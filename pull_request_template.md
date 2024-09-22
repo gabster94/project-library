@@ -1,10 +1,9 @@
 ## Netlify link
-Add your Netlify link here.
-PS. Don't forget to add it in your readme as well.
+https://library-recipes.netlify.app
 
 ## Collaborators
-Gitte Beckman,
+Gitte Beckmann,
 Anna Hansen,
 Gabriella Iofe
 
-[gittebe, Anna2024WebDev,gabster94]
+[gittebe, Anna2024WebDev, gabster94]
