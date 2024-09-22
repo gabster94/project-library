@@ -3,8 +3,8 @@ Add your Netlify link here.
 PS. Don't forget to add it in your readme as well.
 
 ## Collaborators
-Gitte Beckman
-Anna Hansen
+Gitte Beckman,
+Anna Hansen,
 Garbiela Iofe
 
 [gittebe, Anna2024WebDev,gabster94]
