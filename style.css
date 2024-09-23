@@ -102,20 +102,6 @@ form {
     color: white;
 }
 
-/* Tablet and iPads */
-@media (min-width: 667px) {
-    form {
-        flex-direction: row;
-    }
-
-    .categories {
-        flex-direction: row;
-    }
-}
-
-
-
-
 .random-container {
     padding-top: 30px;
     display: flex;
@@ -141,6 +127,21 @@ form {
     background-color: rgb(96, 96, 122);
     color: white;
 }
+
+
+
+
+/* Tablet and iPads */
+@media (min-width: 667px) {
+    form {
+        flex-direction: row;
+    }
+
+    .categories {
+        flex-direction: row;
+    }
+}
+
 
 
 /* Card Contents */
