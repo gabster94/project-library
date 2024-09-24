@@ -132,7 +132,7 @@ form {
 button {
     appearance: none;
     color: black; 
-    }
+}
 
 /* Tablet and iPads */
 @media (min-width: 667px) {
